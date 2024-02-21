@@ -14,6 +14,7 @@ public class MeinUfo extends SpielObjekt{
     public MeinUfo(int x, int y, Image image) {
         super(x, y, image);
         setRandomPosition();
+        setRandomAcceleration();
     }
 
     @Override
@@ -47,10 +48,10 @@ public class MeinUfo extends SpielObjekt{
         ry = r.nextInt(300+1+this.getHeight())+this.getHeight();
         this.setY(-ry);
         this.setX(rx);
-        this.geschwindigkeit =2;
+        setRandomAcceleration();
     }
     private void setRandomAcceleration(){
         Random r = new Random();
-        int rspeed = r.nextInt(4)+1;
+        this.geschwindigkeit = r.nextInt(4-1)+1;
     }
 }
