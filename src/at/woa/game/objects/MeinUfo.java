@@ -27,7 +27,5 @@ public class MeinUfo extends SpielObjekt{
         }
         this.setY(this.getY()+4);
 
-
-
     }
 }
