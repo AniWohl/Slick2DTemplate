@@ -6,7 +6,6 @@ import java.util.ArrayList;
 public class EasyGame extends BasicGame {
 
 
-
     private ArrayList<MeinUfo> mUfoList;
 
     private Image background;
@@ -25,17 +24,16 @@ public class EasyGame extends BasicGame {
     }
 
 
-
     @Override
     public void init(GameContainer container) throws SlickException {
 
         background =new Image ("assets/pics/background.png");
 
-mUfoList=new ArrayList<MeinUfo>();
+        mUfoList=new ArrayList<MeinUfo>();
 
-for(int i=1;i<=10;i++){
-    mUfoList.add(new MeinUfo(100,100,new Image("assets/pics/meinufo.png")));
-}
+        for(int i=1;i<=10;i++){
+            mUfoList.add(new MeinUfo(100,100,new Image("assets/pics/meinufo.png")));
+        }
     }
 
     @Override
@@ -54,8 +52,7 @@ for(int i=1;i<=10;i++){
 
     @Override
     public void render(GameContainer container, Graphics g) throws SlickException {
-background.draw();
-
+        background.draw();
         for(MeinUfo u :mUfoList)
             u.draw(g);
     }

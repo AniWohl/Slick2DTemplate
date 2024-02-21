@@ -6,7 +6,10 @@ import org.newdawn.slick.geom.Shape;
 
 import java.util.Random;
 
+
 public class MeinUfo extends SpielObjekt{
+    private float acceleration =0.005f;
+    private float geschwindigkeit = 2;
 
     public MeinUfo(int x, int y, Image image) {
         super(x, y, image);
@@ -26,10 +29,11 @@ public class MeinUfo extends SpielObjekt{
     @Override
     public void update(int delta) {
 
+       this.geschwindigkeit = (delta*this.acceleration+geschwindigkeit);
         if (this.getY()>(768+this.getHeight())) {
-     this.setRandomPosition();
+            this.setRandomPosition();
         }
-        this.setY(this.getY()+4);
+        this.setY(this.getY()+(int)this.geschwindigkeit);
 
     }
 
@@ -38,10 +42,15 @@ public class MeinUfo extends SpielObjekt{
         int ry =0;
         int rx =0;
 
-        rx = r.nextInt(1024-this.getWidth()+1-0) +0;
+        rx = r.nextInt(1024-this.getWidth()+1-0) +(this.getWidth()/2);
         //y=0 oben
         ry = r.nextInt(300+1+this.getHeight())+this.getHeight();
         this.setY(-ry);
         this.setX(rx);
+        this.geschwindigkeit =2;
+    }
+    private void setRandomAcceleration(){
+        Random r = new Random();
+        int rspeed = r.nextInt(4)+1;
     }
 }
