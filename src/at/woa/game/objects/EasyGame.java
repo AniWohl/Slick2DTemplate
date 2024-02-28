@@ -34,7 +34,7 @@ public class EasyGame extends BasicGame {
 
         crusher= new Crusher(512,700,new Image("assets/pics/crusher.png"),container.getInput());
 
-        for(int i=1;i<=1000;i++){
+        for(int i=1;i<=10;i++){
             mUfoList.add(new MeinUfo(100,100,new Image("assets/pics/meinufo.png")));
         }
     }
@@ -48,8 +48,11 @@ public class EasyGame extends BasicGame {
             container.exit();
         }
 
-        for(MeinUfo u :mUfoList)
+        for(MeinUfo u :mUfoList) {
             u.update(delta);
+            if ()
+        }
+        crusher.update(delta);
 
     }
 
