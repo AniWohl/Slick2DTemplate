@@ -7,6 +7,7 @@ public class EasyGame extends BasicGame {
 
 
     private ArrayList<MeinUfo> mUfoList;
+    private Crusher crusher;
 
     private Image background;
     public EasyGame() {
@@ -30,6 +31,8 @@ public class EasyGame extends BasicGame {
         background =new Image ("assets/pics/background.png");
 
         mUfoList=new ArrayList<MeinUfo>();
+
+        crusher= new Crusher(512,700,new Image("assets/pics/crusher.png"),container.getInput());
 
         for(int i=1;i<=10;i++){
             mUfoList.add(new MeinUfo(100,100,new Image("assets/pics/meinufo.png")));
@@ -55,6 +58,7 @@ public class EasyGame extends BasicGame {
         background.draw();
         for(MeinUfo u :mUfoList)
             u.draw(g);
+        crusher.draw(g);
     }
 
 

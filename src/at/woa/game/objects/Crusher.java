@@ -17,12 +17,13 @@ public class Crusher extends SpielObjekt{
 
     @Override
     public void draw(Graphics g) {
+        this.getImage().drawCentered(this.getX(),this.getY());
 
     }
 
     @Override
     public Shape getShape() {
-        return null;
+        return shape;
     }
 
     @Override
