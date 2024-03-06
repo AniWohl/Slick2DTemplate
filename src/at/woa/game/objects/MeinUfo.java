@@ -35,7 +35,8 @@ public class MeinUfo extends SpielObjekt{
             this.setRandomPosition();
         }
         this.setY(this.getY()+(int)this.geschwindigkeit);
-
+        shape.setCenterX(this.getX());
+        shape.setCenterY(this.getY());
     }
 
     public void setRandomPosition(){
