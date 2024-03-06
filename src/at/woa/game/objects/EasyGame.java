@@ -17,6 +17,7 @@ public class EasyGame extends BasicGame {
     private float lautstaerke =0f;
     private int hit=0;
     private int miss=0;
+    private AngelCodeFont font;
     public EasyGame() {
         super("EasyGame");
     }
@@ -34,7 +35,7 @@ public class EasyGame extends BasicGame {
 
     @Override
     public void init(GameContainer container) throws SlickException {
-
+        font = new AngelCodeFont("testdata/demo2.fnt","testdata/demo2_00.tga");
         background =new Image ("assets/pics/background.png");
 
         mUfoList=new ArrayList<MeinUfo>();
@@ -76,8 +77,10 @@ public class EasyGame extends BasicGame {
                 sound.play();
                 u.setRandomPosition();
                 hit ++;
-            } else {
+            }
+            if (u.getY()>768) {
                 miss++;
+                u.setRandomPosition();
             }
             u.update(delta);
 
@@ -92,6 +95,8 @@ public class EasyGame extends BasicGame {
         for(MeinUfo u :mUfoList)
             u.draw(g);
         crusher.draw(g);
+        font.drawString(80, 5, "Hit:"+hit, Color.black);
+        font.drawString(80, 30, "Miss:"+miss, Color.red);
     }
 
 
