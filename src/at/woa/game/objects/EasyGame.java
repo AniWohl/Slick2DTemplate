@@ -49,6 +49,10 @@ public class EasyGame extends BasicGame {
         }
 
         for(MeinUfo u :mUfoList) {
+            if(crusher.intersects(u.getShape())){
+                System.out.println("coolide");
+                u.setRandomPosition();
+            }
             u.update(delta);
 
         }

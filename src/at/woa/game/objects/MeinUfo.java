@@ -38,7 +38,7 @@ public class MeinUfo extends SpielObjekt{
 
     }
 
-    private void setRandomPosition(){
+    public void setRandomPosition(){
         Random r = new Random();
         int ry =0;
         int rx =0;
