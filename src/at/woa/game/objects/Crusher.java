@@ -10,6 +10,7 @@ public class Crusher extends SpielObjekt{
     private Input input;
     private Rectangle shape;
     private float acceleration=0.5f;
+
     public Crusher(int x, int y, Image image,Input input) {
         super(x, y, image);
         this.input = input;

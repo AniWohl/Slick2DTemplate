@@ -10,6 +10,13 @@ public class EasyGame extends BasicGame {
     private Crusher crusher;
 
     private Image background;
+
+    private Sound sound;
+    private Music music;
+
+    private float lautstaerke =0f;
+    private int hit=0;
+    private int miss=0;
     public EasyGame() {
         super("EasyGame");
     }
@@ -34,6 +41,10 @@ public class EasyGame extends BasicGame {
 
         crusher= new Crusher(512,700,new Image("assets/pics/crusher.png"),container.getInput());
 
+        music = new Music("testdata/kirby.ogg", true);
+        sound = new Sound("testdata/burp.aif");
+        music.loop();
+        music.setVolume(5);
         for(int i=1;i<=10;i++){
             mUfoList.add(new MeinUfo(100,100,new Image("assets/pics/meinufo.png")));
         }
@@ -48,10 +59,25 @@ public class EasyGame extends BasicGame {
             container.exit();
         }
 
+        if (input.isKeyPressed(Input.KEY_2)){
+            lautstaerke = lautstaerke +0.5f;
+            if(lautstaerke >= 10) lautstaerke =10;
+            music.setVolume(lautstaerke/10f);
+        }
+        if (input.isKeyPressed(Input.KEY_1)){
+            lautstaerke = lautstaerke -0.5f;
+            if(lautstaerke < 1) lautstaerke =0;
+            music.setVolume(lautstaerke/10f);
+        }
+
         for(MeinUfo u :mUfoList) {
             if(crusher.intersects(u.getShape())){
                 System.out.println("coolide");
+                sound.play();
                 u.setRandomPosition();
+                hit ++;
+            } else {
+                miss++;
             }
             u.update(delta);
 
