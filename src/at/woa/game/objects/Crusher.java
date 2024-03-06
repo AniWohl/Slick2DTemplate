@@ -29,30 +29,34 @@ public class Crusher extends SpielObjekt{
 
     @Override
     public void update(int delta) {
-      boolean pressed = false;
+        boolean pressed = false;
 
         if (input.isKeyDown(Input.KEY_A)) {
             //Wenn x < 0 +1/2 Objektgröße keine Veränderung von x mehr
-            this.setX(this.getX() - (int)this.acceleration);
-            if ((this.getX() < this.getWidth()/2))this.setX(this.getWidth()/2);
+            this.setX(this.getX() - (int) this.acceleration);
+            if ((this.getX() < this.getWidth() / 2)) this.setX(this.getWidth() / 2);
             pressed = true;
         }
         if (input.isKeyDown(Input.KEY_D)) {
-            this.setX(this.getX() + (int)this.acceleration);
-            if ((this.getX() > (1024-this.getWidth()/2)))this.setX(1024-this.getWidth()/2);
+            this.setX(this.getX() + (int) this.acceleration);
+            if ((this.getX() > (1024 - this.getWidth() / 2))) this.setX(1024 - this.getWidth() / 2);
             pressed = true;
         }
-        if (pressed){
-            acceleration+= delta;
-            if(acceleration > 15) acceleration=15;
+        if (pressed) {
+            acceleration += delta;
+            if (acceleration > 15) acceleration = 15;
         } else {
-            acceleration =0.5f;
+            acceleration = 0.5f;
         }
 
         shape.setCenterX(this.getX());
         shape.setCenterY(this.getY());
+    }
 
-
-
+        public boolean intersects(Shape shape){
+        if (shape!=null) {
+            return this.getShape().intersects(shape);
+        }
+        return false;
     }
 }

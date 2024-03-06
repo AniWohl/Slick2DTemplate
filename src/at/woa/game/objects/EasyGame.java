@@ -50,7 +50,7 @@ public class EasyGame extends BasicGame {
 
         for(MeinUfo u :mUfoList) {
             u.update(delta);
-            if ()
+
         }
         crusher.update(delta);
 
