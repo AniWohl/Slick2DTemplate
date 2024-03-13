@@ -1,64 +1,64 @@
-package at.ran.test.newgame;
+package at.woa.game.objects;
 
-import at.woa.game.objects.SpielObjekt;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.geom.Shape;
 
-public class NyanCat extends SpielObjekt {
+public class Crusher extends SpielObjekt {
     private Input input;
     private Rectangle shape;
-    private float acceleration=0.5f;
+    private float acceleration = 0.5F;
 
-    public NyanCat(int x, int y, Image image, Input input) {
+    public Crusher(int x, int y, Image image, Input input) {
         super(x, y, image);
         this.input = input;
-        shape = new Rectangle(x,y, image.getWidth(), image.getHeight());
+        this.shape = new Rectangle((float)x, (float)y, (float)image.getWidth(), (float)image.getHeight());
     }
 
-    @Override
     public void draw(Graphics g) {
-        this.getImage().drawCentered(this.getX(),this.getY());
-
+        this.getImage().drawCentered((float)this.getX(), (float)this.getY());
     }
 
-    @Override
     public Shape getShape() {
-        return shape;
+        return this.shape;
     }
 
-    @Override
     public void update(int delta) {
         boolean pressed = false;
+        if (this.input.isKeyDown(30)) {
+            this.setX(this.getX() - (int)this.acceleration);
+            if (this.getX() < this.getWidth() / 2) {
+                this.setX(this.getWidth() / 2);
+            }
 
-        if (input.isKeyDown(Input.KEY_A)) {
-            //Wenn x < 0 +1/2 Objektgröße keine Veränderung von x mehr
-            this.setX(this.getX() - (int) this.acceleration);
-            if ((this.getX() < this.getWidth() / 2)) this.setX(this.getWidth() / 2);
             pressed = true;
         }
-        if (input.isKeyDown(Input.KEY_D)) {
-            this.setX(this.getX() + (int) this.acceleration);
-            if ((this.getX() > (1024 - this.getWidth() / 2))) this.setX(1024 - this.getWidth() / 2);
+
+        if (this.input.isKeyDown(32)) {
+            this.setX(this.getX() + (int)this.acceleration);
+            if (this.getX() > 1024 - this.getWidth() / 2) {
+                this.setX(1024 - this.getWidth() / 2);
+            }
+
             pressed = true;
         }
+
         if (pressed) {
-            acceleration += delta;
-            if (acceleration > 15) acceleration = 15;
+            this.acceleration += (float)delta;
+            if (this.acceleration > 15.0F) {
+                this.acceleration = 15.0F;
+            }
         } else {
-            acceleration = 0.5f;
+            this.acceleration = 0.5F;
         }
 
-        shape.setCenterX(this.getX());
-        shape.setCenterY(this.getY());
+        this.shape.setCenterX((float)this.getX());
+        this.shape.setCenterY((float)this.getY());
     }
 
-        public boolean intersects(Shape shape){
-        if (shape!=null) {
-            return this.getShape().intersects(shape);
-        }
-        return false;
+    public boolean intersects(Shape shape) {
+        return shape != null ? this.getShape().intersects(shape) : false;
     }
 }
