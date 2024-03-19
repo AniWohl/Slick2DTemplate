@@ -1,10 +1,10 @@
-package at.woa.game.objects;
+package at.ran.test.newgame;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 
-import at.sno.newgame.nyancat;
-import at.sno.newgame.poop;
+import at.ran.test.newgame.nyancat;
+import at.ran.test.newgame.poop;
 import org.newdawn.slick.AngelCodeFont;
 import org.newdawn.slick.AppGameContainer;
 import org.newdawn.slick.BasicGame;
@@ -34,7 +34,7 @@ public class TheGame extends BasicGame {
     }
 
     public static void main(String[] args) throws SlickException {
-        AppGameContainer container = new AppGameContainer(new at.sno.newgame.TheGame());
+        AppGameContainer container = new AppGameContainer(new at.ran.test.newgame.TheGame());
         container.setDisplayMode(1024, 768, false);
         container.setMinimumLogicUpdateInterval(25);
         container.setTargetFrameRate(60);

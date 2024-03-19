@@ -1,12 +1,6 @@
-//
-// Source code recreated from a .class file by IntelliJ IDEA
-// (powered by FernFlower decompiler)
-//
+package at.ran.test.newgame;
 
-package at.woa.game.objects;
-package at.sno.newgame;
-
-import at.sno.game.objects.spielobjekt;
+import at.ran.test.newgame.Spielobjekt;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.geom.Rectangle;
@@ -14,7 +8,7 @@ import org.newdawn.slick.geom.Shape;
 
 import java.util.Random;
 
-public class poop extends spielobjekt {
+public class poop extends Spielobjekt {
 
     private float acceleration =0.005f;
     private float geschwindigkeit =2;

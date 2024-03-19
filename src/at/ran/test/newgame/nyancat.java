@@ -1,6 +1,6 @@
-package at.woa.game.objects;
+package at.ran.test.newgame;
 
-import at.sno.game.objects.spielobjekt;
+import at.ran.test.newgame.Spielobjekt;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.Input;
@@ -8,7 +8,7 @@ import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.geom.Shape;
 
 
-public class nyancat extends spielobjekt {
+public class nyancat extends Spielobjekt {
     private Input input;
     private Rectangle shape;
     private float acceleration = 0.1F;

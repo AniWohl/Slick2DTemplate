@@ -1,5 +1,4 @@
 package at.ran.test.newgame;
-
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.geom.Shape;
@@ -20,12 +19,14 @@ public abstract class Spielobjekt {
         this.height = image.getHeight();
     }
 
-    public abstract void draw(Graphics g);
+    public abstract void draw(Graphics var1);
+
     public abstract Shape getShape();
-    public abstract void update(int delta);
+
+    public abstract void update(int var1);
 
     public int getX() {
-        return x;
+        return this.x;
     }
 
     public void setX(int x) {
@@ -33,7 +34,7 @@ public abstract class Spielobjekt {
     }
 
     public int getY() {
-        return y;
+        return this.y;
     }
 
     public void setY(int y) {
@@ -41,7 +42,7 @@ public abstract class Spielobjekt {
     }
 
     public int getWidth() {
-        return width;
+        return this.width;
     }
 
     public void setWidth(int width) {
@@ -49,7 +50,7 @@ public abstract class Spielobjekt {
     }
 
     public int getHeight() {
-        return height;
+        return this.height;
     }
 
     public void setHeight(int height) {
@@ -57,11 +58,10 @@ public abstract class Spielobjekt {
     }
 
     public Image getImage() {
-        return image;
+        return this.image;
     }
 
     public void setImage(Image image) {
         this.image = image;
     }
-
 }
